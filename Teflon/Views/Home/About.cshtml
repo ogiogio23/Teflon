@@ -1,0 +1,39 @@
+﻿@model Teflon.Models.Student
+
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+
+
+<p>Use this area to provide additional information.</p>
+
+
+<h3>@ViewBag.TheMessage</h3>
+<form method="post">
+    <textarea name="message"></textarea>
+    <input type="submit" value="send"/>
+</form>
+
+<br /><br />
+@using(Html.BeginForm("About", "Home", FormMethod.Post))
+{
+    <span>Student Id:</span> @Html.TextBoxFor(m=>m.Id, new { @class = "form-control"})<br />
+
+    <span>Student Name:</span> @Html.TextBoxFor(m => m.StudentName, new { @class = "form-control" })<br />
+
+    <span>Student Age:</span> @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })<br />
+
+    <span>Student Phone Number:</span> @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })<br />
+
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+}
+
+<hr />
+<span>Student Id:</span> <strong> @Html.DisplayFor(m => m.Id)</strong>
+<br />
+<span>Student Name:</span><strong> @Html.DisplayFor(m => m.StudentName)</strong>
+<br />
+<span>Student Age:</span><strong> @Html.DisplayFor(m => m.Age)</strong>
+<br />
+<span>Student Phone Number:</span><strong> @Html.DisplayFor(m => m.PhoneNumber)</strong>
